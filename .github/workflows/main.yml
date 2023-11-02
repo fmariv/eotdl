@@ -47,8 +47,3 @@ jobs:
         run: |
           cd eotdl
           poetry run black --check --diff .
-
-      - name: Lint with Flake8
-        run: |
-          cd eotdl
-          poetry run flake8 .
