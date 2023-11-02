@@ -6,7 +6,7 @@ on:
       - ci-cd
 
 jobs:
-  test:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
