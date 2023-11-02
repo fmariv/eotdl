@@ -28,7 +28,6 @@ jobs:
         run: |
           cd eotdl
           poetry install --no-interaction --no-root
-          poetry add pylint black flake8 --dev
       
       # - name: API tests
       #   run: poetry run pytest api/tests --cov .
@@ -47,3 +46,8 @@ jobs:
         run: |
           cd eotdl
           poetry run black --check --diff .
+
+      - name: Run Mypy
+        run: |
+          cd eotdl
+          poetry run mypy .

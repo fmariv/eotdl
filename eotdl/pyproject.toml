@@ -31,6 +31,7 @@ pytest-watch = "^4.2.0"
 pytest-mock = "^3.6.1"
 pylint = "^3.0.2"
 black = "^23.10.1"
+mypy = "^1.6.1"
 
 [build-system]
 requires = ["poetry-core"]
