@@ -33,19 +33,26 @@ jobs:
       #   run: poetry run pytest api/tests --cov .
 
       - name: lib tests
-        run: poetry run pytest --cov .
+        run: |
+          cd eotdl
+          poetry run pytest --cov .
 
       - name: Check code with Pylint
         run: |
+          cd eotdl
           poetry run pylint --fail-under=9 $(find . -type f -name "*.py" -not -path "./.venv/*")
 
       - name: Format code with Black
         run: |
+          cd eotdl
           poetry run black --check --diff .
 
       - name: Install Flake8
-        run: poetry run pip install flake8
+        run: |
+          cd eotdl
+          poetry run pip install flake8
 
       - name: Lint with Flake8
         run: |
+          cd eotdl
           poetry run flake8 .
