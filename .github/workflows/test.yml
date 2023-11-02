@@ -30,7 +30,9 @@ jobs:
           poetry install --no-interaction --no-root
       
       - name: API tests
-        run: poetry run pytest ../api --cov .
+        run: |
+          cd eotdl
+          poetry run pytest ../api --cov .
 
       - name: lib tests
         run: |
