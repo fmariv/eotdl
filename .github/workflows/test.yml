@@ -28,13 +28,18 @@ jobs:
         run: |
           cd eotdl
           poetry install --no-interaction --no-root
-      
-      - name: API tests
-        run: |
-          cd eotdl
-          poetry run pytest ../api --cov .
 
       - name: lib tests
         run: |
           cd eotdl
           poetry run pytest --cov .
+
+      - name: Install API dependencies
+        run: |
+          cd api
+          poetry add fastapi bson 
+
+      - name: API tests
+        run: |
+          cd eotdl
+          poetry run pytest ../api --cov .
