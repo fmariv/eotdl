@@ -36,7 +36,7 @@ jobs:
 
       - name: Install API dependencies
         run: |
-          cd api
+          cd eotdl
           poetry add fastapi bson 
 
       - name: API tests
