@@ -46,6 +46,7 @@ jobs:
       #     poetry run pytest ../api --cov .
 
   lint:
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
@@ -81,6 +82,7 @@ jobs:
       #     poetry run flake8 $(find . -type f -name "*.py" -not -path "./.venv/*") --max-complexity=10 --max-line-length=79 --statistics
 
   publish:
+    needs: lint
     runs-on: ubuntu-latest
 
     steps:
