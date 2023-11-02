@@ -1,4 +1,4 @@
-name: CI
+name: Lint
 
 on:
   push:
@@ -28,24 +28,16 @@ jobs:
         run: |
           cd eotdl
           poetry install --no-interaction --no-root
-      
-      # - name: API tests
-      #   run: poetry run pytest api/tests --cov .
-
-      - name: lib tests
-        run: |
-          cd eotdl
-          poetry run pytest --cov .
-
-      - name: Check code with Pylint
-        run: |
-          cd eotdl
-          poetry run pylint --fail-under=9 $(find . -type f -name "*.py" -not -path "./.venv/*")
 
       - name: Format code with Black
         run: |
           cd eotdl
           poetry run black --check --diff .
+
+      - name: Check code with Pylint
+        run: |
+          cd eotdl
+          poetry run pylint --fail-under=9 $(find . -type f -name "*.py" -not -path "./.venv/*")
 
       - name: Run Mypy
         run: |
