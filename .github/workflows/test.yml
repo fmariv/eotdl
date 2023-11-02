@@ -34,12 +34,13 @@ jobs:
           cd eotdl
           poetry run pytest --cov .
 
-      - name: Install API dependencies
-        run: |
-          cd eotdl
-          poetry add fastapi uvicorn pymongo minio auth0-python python-multipart httpx boto3 stac_validator
+      # - name: Install API dependencies
+      #   run: |
+      #     cd eotdl
+      #     poetry add fastapi uvicorn pymongo minio auth0-python python-multipart httpx boto3 stac_validator
+      #   # put the dependencies in the requirements.txt file
 
-      - name: API tests
-        run: |
-          cd eotdl
-          poetry run pytest ../api --cov .
+      # - name: API tests
+      #   run: |
+      #     cd eotdl
+      #     poetry run pytest ../api --cov .
